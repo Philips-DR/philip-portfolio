@@ -395,10 +395,18 @@ dynamic route pipeline is proven end to end. Their bodies are explicit Phase 2 w
       one in `astro.config.mjs` remains) and read through all case-study copy
 
 ### Phase 5 — Ship
-- [ ] Create the public `philip-portfolio` repo and push
-- [ ] Import into Vercel, confirm the production build, verify the live URL
+- [x] Push to GitHub — **as `Philips-DR/philip-portfolio`, kept PRIVATE for now** (Philip's explicit
+      choice) rather than the public repo originally planned here. This is the right call while the
+      4 `CONFIRM (Philip)` markers in the case studies are still unresolved (see Phase 2) — a
+      private repo means unreviewed draft claims aren't publicly visible. **Flip to public only
+      once those are resolved**, alongside (not before) the Vercel deploy — no reason for the
+      code to go public before the site itself does.
+- [ ] Import into Vercel, confirm the production build, verify the live URL — needs Philip's own
+      Vercel login (OAuth), not something drivable from here
 - [ ] Verify the live site on a real phone and on desktop
 - [ ] Update LinkedIn and the resume header with the URL
+- [ ] Once content is confirmed and the repo goes public: flip `docu-ai` public too (§3a), then add
+      its real repo link to that case study
 
 ---
 
