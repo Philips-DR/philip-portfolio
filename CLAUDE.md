@@ -98,7 +98,7 @@ Current state (all private as of 2026-09-09):
 |---|---|---|
 | `docu-ai` | TypeScript | **Best candidate.** General-purpose tool, not employer IP. Audit and open first. |
 | `voice-ai-survey-platform` | Python | **Ownership unresolved — see note below.** Default to private and present as an architecture case study until resolved. |
-| `personal-ai-main` | Python | Audit before deciding. Personal, but check for keys and personal data. |
+| `personal-ai-main` | Python | **Not personal work — keep private, not portfolio content.** See audit note below. |
 | `second-brain` | — | Likely personal notes. Assume not publishable unless Philip says otherwise. |
 
 **Note on `voice-ai-survey-platform`:** Philip states it was an exploratory project that never
@@ -130,6 +130,30 @@ Audit steps, per repo, before any visibility change:
 
 A well-documented public repo is strong evidence. A public repo with a leaked key is a
 disqualifying event. The order matters.
+
+### Audit results (2026-09-09)
+
+**`docu-ai` — clean, ready pending Philip's go-ahead.** No secrets in history (verified across all
+4 commits, full diff scan): no credential files ever committed, `.gitignore` correctly excludes
+`credentials.json`/`client_secret_*.json`/`token.json`/`*.pdf`, no hardcoded API keys/tokens, no
+real document IDs. The one test hitting the live Google API is opt-in (`DOCU_AI_LIVE_TESTS=1`),
+skipped by default, and self-cleaning (trashes its test doc in `afterAll`). The existing README
+already meets the "what/why/install/usage/architecture/testing" bar — no rewrite needed. A LICENSE
+(MIT) is drafted and staged locally in the audit clone, not yet pushed. All 4 commits are authored
+under `philip@ayadata.ai` — not a security issue, just worth knowing before this is public.
+**Remaining step: Philip confirms → push the LICENSE → flip visibility to public.**
+
+**`personal-ai-main` — reclassified, not portfolio material.** No secrets found either (all
+`.env.example` fields blank, no leaked keys/tokens across history). But its own README states it
+was **"built by the AyaData AI Solutions team"** — this is not personal work despite the repo name,
+and stays private regardless of code quality. Separately: test fixtures in
+`backend/tests/test_modules/test_email_handler.py`, `test_github_docs_handler.py`, and
+`backend/tests/evals/fixtures.py` contain email addresses on the real `@ayadata.ai` domain
+(`elton@ayadata.ai`, `henry@ayadata.ai`) alongside clearly synthetic ones (`alice@co.com`). Not
+investigated further — whether those reference real colleagues is Philip's call, not something to
+dig into further here. Also present: a `Personal AI Assistant Project Scope.docx` (18KB, untouched)
+— worth Philip's own look regardless of the portfolio question, since scope docs often contain
+planning detail (goals, timelines) not meant to ever go public.
 
 ---
 
@@ -317,14 +341,25 @@ dynamic route pipeline is proven end to end. Their bodies are explicit Phase 2 w
       `grep -rn "CONFIRM (Philip)" src/content/case-studies/`
 
 ### Phase 3 — Evidence
-- [ ] Run the §3a audit on `docu-ai` — full history scan for OAuth credentials and `.env`
-- [ ] Rotate any exposed credential, then clean history (or republish without history)
-- [ ] Write a real README: what it does, why, install, usage, architecture, test strategy
-- [ ] Philip confirms → make `docu-ai` public → link it from the case study and homepage
-- [ ] Run the §3a audit on `personal-ai-main`; decide with Philip whether it's portfolio-worthy
-- [ ] Architecture diagram — voice pipeline (telephony → ASR → MT → classify → route → TTS)
-- [ ] Architecture diagram — serving stack (Triton, FastAPI gateway, Terraform/Ansible)
-- [ ] Architecture diagram — event-driven agent infra (Kafka, Redis, LangGraph)
+- [x] Run the §3a audit on `docu-ai` — full history scan for OAuth credentials and `.env` — clean,
+      see audit results above
+- [x] Rotate any exposed credential, then clean history — n/a, nothing exposed
+- [x] Write a real README — already excellent (pre-existing); MIT LICENSE drafted, staged locally,
+      not pushed
+- [ ] **Philip confirms** → push the LICENSE → make `docu-ai` public → then add its real repo link
+      to the case study and homepage (not done yet — would 404 while private)
+- [x] Run the §3a audit on `personal-ai-main` — reclassified as employer work, not portfolio
+      material; stays private regardless of the public-code decision (see audit results above)
+- [x] Architecture diagram — voice pipeline (telephony → ASR → MT → classify → route → TTS) —
+      inline SVG in the Voice AI Survey Platform case study
+- [x] Architecture diagram — serving stack (Triton, FastAPI gateway, Terraform/Ansible) — inline
+      SVG in the Akan–English Speech Pipeline case study
+- [x] Architecture diagram — docu-ai's parse/plan/emit/verify pipeline — inline SVG (added beyond
+      the original three; it's the flagship public-code story and earned one)
+- [~] Architecture diagram — event-driven agent infra (Kafka, Redis, LangGraph) — **cut**. This
+      bullet belongs to the two homepage short entries (document extraction, analytics dashboard),
+      and a full diagram there would break the "short = 3–4 sentences, no dedicated page" rule
+      from §4. Not silently dropped — deliberately out of scope to protect the 3-deep/2-short cap.
 - [ ] Philip reviews each diagram for technical accuracy
 
 ### Phase 4 — Polish
