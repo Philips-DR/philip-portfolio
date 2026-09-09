@@ -1,10 +1,10 @@
 # Philip Baah Afriyie — Portfolio
 
-Source for [philip-portfolio.vercel.app](https://philip-portfolio.vercel.app) — a portfolio site
-built for recruiters and hiring managers evaluating Philip for AI/ML Engineer roles.
+Source for [philip-portfolio.vercel.app](https://philip-portfolio.vercel.app) — my portfolio site,
+built for recruiters and hiring managers evaluating me for AI/ML Engineer roles.
 
 Project rules, content scope, confidentiality boundaries, and the build plan live in
-[`CLAUDE.md`](./CLAUDE.md) — read that before making changes.
+[`CLAUDE.md`](./CLAUDE.md) — check that before making changes.
 
 ## Stack
 
