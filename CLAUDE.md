@@ -363,12 +363,36 @@ dynamic route pipeline is proven end to end. Their bodies are explicit Phase 2 w
 - [ ] Philip reviews each diagram for technical accuracy
 
 ### Phase 4 — Polish
-- [ ] Dark/light both verified
-- [ ] Responsive 320 → 1920
-- [ ] Meta tags, Open Graph image, `sitemap.xml`, `robots.txt`
-- [ ] Lighthouse ≥ 95 across the board
-- [ ] Every link clicked; every diagram has meaningful alt text
-- [ ] Proofread aloud — typos on an engineer's portfolio are disproportionately damaging
+- [x] Dark/light both verified — **not just eyeballed**: computed actual WCAG contrast ratios
+      (OKLCH → sRGB → relative luminance) for every color pair in use. Found and fixed two real
+      failures: the light-mode `--color-accent` measured 3.67:1 on white (now 6.44:1 at a
+      corrected lightness), and three `dark:text-slate-500` instances measured 4.24:1 on the dark
+      background (now `dark:text-slate-400`, 7.87:1). Both were failing the 4.5:1 minimum this
+      same document requires — worth knowing they shipped that way initially.
+- [x] Responsive 320 → 1920 — reviewed the header specifically (name + 3 nav items + Resume
+      button in one row was liable to overflow at 320px); fixed with `flex-wrap` and a
+      shorter-name variant below the `sm` breakpoint. Everything else uses `flex-wrap`/stacking
+      grids already. Not visually screenshot-tested (no browser available in this environment) —
+      worth a real-device check in Phase 5.
+- [x] Meta tags, Open Graph image, `sitemap.xml`, `robots.txt` — OG image hand-drawn as SVG and
+      rasterized (`rsvg-convert`), OG/Twitter meta tags in `Layout.astro`, `@astrojs/sitemap`
+      integration added, `robots.txt` added
+- [~] Lighthouse ≥ 95 across the board — **could not run**: no Chrome/Chromium and no `lighthouse`
+      CLI available in this environment. Substituted a manual audit instead: computed contrast
+      ratios (see above), verified heading hierarchy/landmarks/alt text (below), checked total
+      page weight (40 KB homepage HTML+CSS, well under the 500 KB budget), confirmed no
+      render-blocking third-party requests. **A real Lighthouse run against the deployed URL in
+      Phase 5 is still owed** — this substitute doesn't cover everything Lighthouse checks (e.g.
+      actual paint timing).
+- [x] Every link clicked — automated crawl of the built `astro preview` output found zero broken
+      internal links across all 5 pages. External links (GitHub, LinkedIn, mailto) spot-checked;
+      LinkedIn returns HTTP 999 to automated requests, which is LinkedIn's standard bot-blocking
+      response, not a broken link — URL matches the resume's stated one exactly.
+- [x] Every diagram has meaningful alt text — all 3 inline SVGs use `role="img"` with a full
+      descriptive `aria-label`; zero `<img>` tags anywhere lack `alt`. Every page has exactly one
+      `<h1>` and correct heading nesting; header/nav/main/footer landmarks present on every page.
+- [x] Proofread — scanned for stray TODO/FIXME/placeholder markers (only the intentional Phase-5
+      one in `astro.config.mjs` remains) and read through all case-study copy
 
 ### Phase 5 — Ship
 - [ ] Create the public `philip-portfolio` repo and push

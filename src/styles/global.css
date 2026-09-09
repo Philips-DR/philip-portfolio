@@ -4,7 +4,10 @@
 /* Single accent colour (CLAUDE.md §6) — everything else is Tailwind's neutral/slate ramp.
    Change it here once; nothing else should hardcode a hue. */
 @theme {
-  --color-accent: oklch(0.6 0.13 220);
+  /* L=0.46 chosen for a measured 6.44:1 contrast against white — the original 0.6 lightness
+     measured only 3.67:1, failing the 4.5:1 minimum in CLAUDE.md §5. Verified with an OKLCH ->
+     sRGB -> WCAG relative-luminance calculation, not eyeballed. */
+  --color-accent: oklch(0.46 0.13 220);
   --color-accent-light: oklch(0.75 0.1 220);
 }
 

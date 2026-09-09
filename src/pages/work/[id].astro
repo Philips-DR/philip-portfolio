@@ -24,7 +24,7 @@ const { Content } = await render(entry);
 			{entry.data.role}
 			{entry.data.period && <> &middot; {entry.data.period}</>}
 		</p>
-		<p class="mb-8 flex flex-wrap gap-2 text-xs text-slate-500 dark:text-slate-500">
+		<p class="mb-8 flex flex-wrap gap-2 text-xs text-slate-500 dark:text-slate-400">
 			{entry.data.stack.map((tech) => <span class="rounded border border-slate-200 px-2 py-1 dark:border-slate-800">{tech}</span>)}
 		</p>
 		<div class="prose prose-slate max-w-none dark:prose-invert">
