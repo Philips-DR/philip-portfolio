@@ -5,6 +5,48 @@ import Layout from '../layouts/Layout.astro';
 const caseStudies = (await getCollection('caseStudies'))
   .filter((entry) => entry.data.featured)
   .sort((a, b) => a.data.order - b.data.order);
+
+const shortEntries = [
+  {
+    title: 'Agentic document extraction',
+    summary:
+      'An end-to-end pipeline that ingests raw PDFs and scanned images and converts them into structured PostgreSQL records via OCR, with downstream agents running analytics on the extracted data to generate reports automatically. Prototype, not deployed to production.',
+    stack: ['OCR (Tesseract, PaddleOCR)', 'PostgreSQL', 'Python'],
+  },
+  {
+    title: 'Computer vision for agriculture',
+    summary:
+      'Object detection models for automated crop counting: 91.8% precision on banana trees with MMDetection and 94% precision on palm trees with Ultralytics YOLOv8, to improve harvest planning.',
+    stack: ['MMDetection', 'Ultralytics YOLOv8', 'Object detection'],
+  },
+];
+
+const skillGroups = [
+  { label: 'Languages', items: ['Python', 'TypeScript', 'JavaScript', 'SQL', 'Bash'] },
+  {
+    label: 'AI and LLM systems',
+    items: [
+      'LangChain', 'LangGraph', 'Agentic RAG', 'Retrieval-augmented generation',
+      'Prompt engineering', 'Claude on AWS Bedrock', 'Hugging Face Transformers', 'PyTorch',
+      'Model fine-tuning', 'OCR (Tesseract, PaddleOCR)',
+    ],
+  },
+  {
+    label: 'Machine learning',
+    items: ['Scikit-learn', 'MMDetection', 'Ultralytics YOLOv8', 'Object detection', 'NLP', 'Speech AI'],
+  },
+  {
+    label: 'MLOps and infrastructure',
+    items: [
+      'Docker', 'Kubernetes', 'NVIDIA Triton', 'Terraform', 'Ansible', 'Kafka', 'Redis',
+      'Gunicorn', 'nginx', 'MLflow', 'DVC',
+    ],
+  },
+  {
+    label: 'Cloud and data',
+    items: ['AWS (EC2, S3, Lambda, Bedrock)', 'PostgreSQL', 'FastAPI', 'REST APIs', 'OAuth 2.0'],
+  },
+];
 ---
 
 <Layout
@@ -17,12 +59,10 @@ const caseStudies = (await getCollection('caseStudies'))
 		</p>
 		<h1 class="mb-6 text-3xl font-semibold tracking-tight sm:text-4xl">Philip Baah Afriyie</h1>
 		<p class="max-w-2xl text-lg leading-relaxed text-slate-700 dark:text-slate-300">
-			<!-- TODO(Phase 2): finalize this positioning paragraph against CLAUDE.md §4 voice rules
-			     and the corrected resume before this ships. -->
-			Three years fine-tuning ASR, MT and TTS on code-switched Twi and Akan speech, computer
-			vision for crop detection, and the agentic AI that puts those models to work — accountable
-			for a system from research notebook to production-ready handoff. Accra, Ghana — open to
-			remote.
+			Three years at Ayadata fine-tuning ASR, MT and TTS on code-switched Twi and Akan speech,
+			building computer vision for crop detection, and shipping the agentic AI — LangChain and
+			LangGraph agents, retrieval-augmented generation — that puts those models to work. Accra,
+			Ghana — open to remote.
 		</p>
 	</section>
 
@@ -46,7 +86,36 @@ const caseStudies = (await getCollection('caseStudies'))
 				</li>
 			))}
 		</ul>
-		<!-- TODO(Phase 2): add the two short entries (document extraction, computer vision for
-		     agriculture) per CLAUDE.md §4 "Scope" — homepage-only, no dedicated page. -->
+	</section>
+
+	<section class="mx-auto max-w-3xl px-6 pb-20">
+		<h2 class="mb-8 text-xl font-semibold tracking-tight">Other work</h2>
+		<ul class="flex flex-col gap-6">
+			{shortEntries.map((item) => (
+				<li class="rounded-lg border border-slate-200 p-6 dark:border-slate-800">
+					<h3 class="mb-2 font-semibold">{item.title}</h3>
+					<p class="mb-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+						{item.summary}
+					</p>
+					<p class="flex flex-wrap gap-2 text-xs text-slate-500 dark:text-slate-500">
+						{item.stack.map((tech) => <span>{tech}</span>)}
+					</p>
+				</li>
+			))}
+		</ul>
+	</section>
+
+	<section class="mx-auto max-w-3xl px-6 pb-24">
+		<h2 class="mb-8 text-xl font-semibold tracking-tight">Skills</h2>
+		<dl class="flex flex-col gap-5">
+			{skillGroups.map((group) => (
+				<div class="grid grid-cols-1 gap-1 sm:grid-cols-[11rem_1fr] sm:gap-4">
+					<dt class="text-sm font-medium text-slate-900 dark:text-slate-100">{group.label}</dt>
+					<dd class="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+						{group.items.join(', ')}
+					</dd>
+				</div>
+			))}
+		</dl>
 	</section>
 </Layout>

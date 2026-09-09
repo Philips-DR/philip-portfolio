@@ -304,13 +304,17 @@ Three stub case-study `.md` files exist (frontmatter only, resume-sourced) so th
 dynamic route pipeline is proven end to end. Their bodies are explicit Phase 2 work.
 
 ### Phase 2 — Content (the real work; budget the most time here)
-- [ ] Homepage above-the-fold: name, title, one-line positioning, contact, resume link
-- [ ] Case study 1 — Voice AI Survey Platform
-- [ ] Case study 2 — Akan–English Speech Pipeline
-- [ ] Case study 3 — docu-ai
-- [ ] Two short entries
-- [ ] Skills section — grouped as in the resume, no proficiency bars or percentage ratings
-- [ ] **Philip reviews every factual claim** before proceeding
+- [x] Homepage above-the-fold: name, title, one-line positioning, contact, resume link
+- [x] Case study 1 — Voice AI Survey Platform (with architecture diagram)
+- [x] Case study 2 — Akan–English Speech Pipeline (with architecture diagram)
+- [x] Case study 3 — docu-ai (with architecture diagram)
+- [x] Two short entries (document extraction, computer vision) on the homepage
+- [x] Skills section — grouped as in the resume, no proficiency bars or percentage ratings
+- [ ] **Philip reviews every factual claim** before proceeding — in particular every
+      `<!-- CONFIRM (Philip): ... -->` marker left in the three case-study `.md` files (results
+      and "what I'd do differently" sections drafted from stated facts, not your actual
+      retrospective judgment). Search for them with:
+      `grep -rn "CONFIRM (Philip)" src/content/case-studies/`
 
 ### Phase 3 — Evidence
 - [ ] Run the §3a audit on `docu-ai` — full history scan for OAuth credentials and `.env`
