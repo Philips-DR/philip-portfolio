@@ -7,9 +7,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  // TODO(Phase 5): confirm this matches the real Vercel production URL (or custom domain)
-  // before shipping — it feeds sitemap.xml and canonical/OG tags.
-  site: 'https://philip-portfolio.vercel.app',
+  site: 'https://philip-portfolio-five.vercel.app',
 
   vite: {
     plugins: [tailwindcss()]
