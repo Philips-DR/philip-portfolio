@@ -289,13 +289,19 @@ specialty first.
 
 ### Phase 1 — Scaffold
 - [x] `npm create astro@latest` in this directory (minimal template, TypeScript strict)
-- [ ] `npx astro add tailwind`, then follow whatever it configures for the installed version
-- [ ] `git init`, `.gitignore`, first commit
-- [ ] Content collection + Zod schema for case studies (`title`, `summary`, `role`, `period`,
-      `stack[]`, `order`, `featured`)
-- [ ] Base layout, header, footer, 404
-- [ ] Copy `Philip_Baah_Afriyie_Resume.pdf` into `public/`
-- [ ] Verify `npm run build` produces clean static output
+- [x] `npx astro add tailwind`, then follow whatever it configures for the installed version
+      (+ `@tailwindcss/typography` for case-study prose)
+- [x] `git init`, `.gitignore` (+ `.vercel/`), first commit on `main`
+- [x] Content collection + Zod schema for case studies (`title`, `summary`, `role`, `period`
+      optional, `stack[]`, `order`, `featured`) — `src/content.config.ts`
+- [x] Base layout, header, footer, 404 — single accent colour via `--color-accent` in
+      `src/styles/global.css`
+- [x] Copy `Philip_Baah_Afriyie_Resume.pdf` into `public/` (stale copy — regenerate before Phase 5)
+- [x] Verify `npm run build` produces clean static output — 5 pages, 164 KB total, `astro check`
+      clean
+
+Three stub case-study `.md` files exist (frontmatter only, resume-sourced) so the collection →
+dynamic route pipeline is proven end to end. Their bodies are explicit Phase 2 work.
 
 ### Phase 2 — Content (the real work; budget the most time here)
 - [ ] Homepage above-the-fold: name, title, one-line positioning, contact, resume link
