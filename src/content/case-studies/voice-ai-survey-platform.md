@@ -58,15 +58,12 @@ just hangs up rather than repeating themselves. That set the real constraints:
     <text x="105" y="120" text-anchor="middle" font-weight="600">FastAPI batch</text>
     <text x="105" y="65" text-anchor="middle" font-size="11" opacity="0.75">live calls</text>
     <text x="105" y="135" text-anchor="middle" font-size="11" opacity="0.75">recorded audio</text>
-
     <g stroke="currentColor" stroke-width="1.5" fill="none">
       <rect x="250" y="55" width="150" height="50" rx="6" />
     </g>
     <text x="325" y="85" text-anchor="middle" font-weight="600">Shared survey engine</text>
-
     <line x1="190" y1="45" x2="245" y2="70" marker-end="url(#arrow-voiceai)" stroke="currentColor" stroke-width="1.5" />
     <line x1="190" y1="115" x2="245" y2="90" marker-end="url(#arrow-voiceai)" stroke="currentColor" stroke-width="1.5" />
-
     <g stroke="currentColor" stroke-width="1.5" fill="none">
       <rect x="450" y="20" width="120" height="42" rx="6" />
       <rect x="450" y="72" width="120" height="42" rx="6" />
@@ -77,18 +74,15 @@ just hangs up rather than repeating themselves. That set the real constraints:
     <text x="510" y="98" text-anchor="middle" font-size="12">Translation</text>
     <text x="510" y="150" text-anchor="middle" font-size="12">Answer classify</text>
     <text x="510" y="202" text-anchor="middle" font-size="12">Question routing</text>
-
     <line x1="400" y1="80" x2="445" y2="42" marker-end="url(#arrow-voiceai)" stroke="currentColor" stroke-width="1.5" />
     <line x1="510" y1="62" x2="510" y2="70" marker-end="url(#arrow-voiceai)" stroke="currentColor" stroke-width="1.5" />
     <line x1="510" y1="114" x2="510" y2="122" marker-end="url(#arrow-voiceai)" stroke="currentColor" stroke-width="1.5" />
     <line x1="510" y1="166" x2="510" y2="174" marker-end="url(#arrow-voiceai)" stroke="currentColor" stroke-width="1.5" />
-
     <g stroke="currentColor" stroke-width="1.5" fill="none">
       <rect x="630" y="72" width="150" height="42" rx="6" />
     </g>
     <text x="705" y="98" text-anchor="middle" font-weight="600" font-size="12">Speech synthesis</text>
     <line x1="570" y1="145" x2="700" y2="118" marker-end="url(#arrow-voiceai)" stroke="currentColor" stroke-width="1.5" />
-
     <g stroke="currentColor" stroke-width="1.5" fill="none" stroke-dasharray="4 3">
       <rect x="450" y="240" width="300" height="46" rx="6" />
     </g>

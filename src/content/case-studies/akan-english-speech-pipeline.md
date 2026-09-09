@@ -56,7 +56,6 @@ training started:
     <text x="100" y="128" text-anchor="middle" font-size="11" opacity="0.75">NLLB-200, bidirectional</text>
     <text x="100" y="182" text-anchor="middle" font-weight="600">TTS</text>
     <text x="100" y="198" text-anchor="middle" font-size="11" opacity="0.75">custom Akan voice</text>
-
     <g stroke="currentColor" stroke-width="1.5" fill="none">
       <rect x="240" y="20" width="170" height="192" rx="6" />
     </g>
@@ -66,10 +65,8 @@ training started:
     <text x="325" y="150" text-anchor="middle" font-size="11" opacity="0.75">MLflow tracking:</text>
     <text x="325" y="167" text-anchor="middle" font-size="11" opacity="0.75">WER, BLEU,</text>
     <text x="325" y="184" text-anchor="middle" font-size="11" opacity="0.75">chrF++, ROUGE</text>
-
     <line x1="180" y1="46" x2="235" y2="46" marker-end="url(#arrow-akan)" stroke="currentColor" stroke-width="1.5" />
     <line x1="180" y1="116" x2="235" y2="116" marker-end="url(#arrow-akan)" stroke="currentColor" stroke-width="1.5" />
-
     <g stroke="currentColor" stroke-width="1.5" fill="none">
       <rect x="470" y="90" width="150" height="52" rx="6" />
     </g>
@@ -78,14 +75,12 @@ training started:
     <line x1="410" y1="46" x2="465" y2="95" marker-end="url(#arrow-akan)" stroke="currentColor" stroke-width="1.5" />
     <line x1="410" y1="116" x2="465" y2="116" marker-end="url(#arrow-akan)" stroke="currentColor" stroke-width="1.5" />
     <line x1="180" y1="186" x2="465" y2="138" marker-end="url(#arrow-akan)" stroke="currentColor" stroke-width="1.5" />
-
     <g stroke="currentColor" stroke-width="1.5" fill="none">
       <rect x="670" y="90" width="110" height="52" rx="6" />
     </g>
     <text x="725" y="112" text-anchor="middle" font-weight="600" font-size="12">FastAPI</text>
     <text x="725" y="128" text-anchor="middle" font-size="11" opacity="0.75">auth, rate limit</text>
     <line x1="620" y1="116" x2="665" y2="116" marker-end="url(#arrow-akan)" stroke="currentColor" stroke-width="1.5" />
-
     <g stroke="currentColor" stroke-width="1.5" fill="none" stroke-dasharray="4 3">
       <rect x="470" y="180" width="310" height="46" rx="6" />
     </g>
