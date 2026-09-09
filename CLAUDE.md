@@ -401,10 +401,16 @@ dynamic route pipeline is proven end to end. Their bodies are explicit Phase 2 w
       private repo means unreviewed draft claims aren't publicly visible. **Flip to public only
       once those are resolved**, alongside (not before) the Vercel deploy — no reason for the
       code to go public before the site itself does.
-- [ ] Import into Vercel, confirm the production build, verify the live URL — needs Philip's own
-      Vercel login (OAuth), not something drivable from here
-- [ ] Verify the live site on a real phone and on desktop
-- [ ] Update LinkedIn and the resume header with the URL
+- [x] Import into Vercel, confirm the production build, verify the live URL — **live at
+      <https://philip-portfolio-five.vercel.app/>** (Philip did the GitHub-access + import steps
+      himself; `astro.config.mjs` and `robots.txt` updated to match and pushed, which triggered an
+      automatic redeploy). Verified against the real deployed URL, not just localhost: all 5 pages
+      resolve (including a real 404), all 3 SVG diagrams render correctly (zero escaped tags),
+      resume PDF and OG image download, sitemap/robots.txt correct, and the contrast-fixed accent
+      color confirmed present in the deployed CSS.
+- [ ] Verify the live site on a real phone — still worth doing; only checked via curl/HTTP here,
+      not an actual device or browser (none available in this environment)
+- [ ] Update LinkedIn and the resume header with the URL — Philip's own accounts, his call on timing
 - [ ] Once content is confirmed and the repo goes public: flip `docu-ai` public too (§3a), then add
       its real repo link to that case study
 
