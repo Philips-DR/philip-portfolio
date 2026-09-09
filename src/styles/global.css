@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Single accent colour (CLAUDE.md §6) — everything else is Tailwind's neutral/slate ramp.
+   Change it here once; nothing else should hardcode a hue. */
+@theme {
+  --color-accent: oklch(0.6 0.13 220);
+  --color-accent-light: oklch(0.75 0.1 220);
+}
+
+:root {
+  color-scheme: light dark;
+}
