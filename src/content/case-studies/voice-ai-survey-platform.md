@@ -17,7 +17,7 @@ order: 1
 featured: true
 ---
 
-<p class="rounded-lg border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-900 dark:border-amber-800 dark:bg-amber-950 dark:text-amber-200">
+<p class="rounded-lg border border-amber-800 bg-amber-950 px-4 py-3 text-sm text-amber-200">
   Prototype — this system was designed and built end to end but never deployed to production or
   used on a real call. The results below are what was validated internally, not field results.
 </p>
@@ -43,7 +43,7 @@ just hangs up rather than repeating themselves. That set the real constraints:
 
 ## Architecture
 
-<svg viewBox="0 0 800 320" role="img" aria-label="Two front ends, LiveKit for live calls and FastAPI for batch audio, both call into one shared survey engine: speech recognition, machine translation, answer classification routed to one of five parsers by question type, dynamic question routing with a time-based shortening rule, and speech synthesis. Session state is written to disk after every turn so any worker can resume any call." class="my-8 w-full text-slate-700 dark:text-slate-300">
+<svg viewBox="0 0 800 320" role="img" aria-label="Two front ends, LiveKit for live calls and FastAPI for batch audio, both call into one shared survey engine: speech recognition, machine translation, answer classification routed to one of five parsers by question type, dynamic question routing with a time-based shortening rule, and speech synthesis. Session state is written to disk after every turn so any worker can resume any call." class="my-8 w-full text-slate-300">
   <defs>
     <marker id="arrow-voiceai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="currentColor" />

@@ -222,8 +222,13 @@ No hero animation. No "scroll to explore". No splash screen.
   as inline SVG so they stay crisp and theme-aware.
 - Accessibility is non-negotiable: semantic landmarks, one `<h1>` per page, real focus states,
   4.5:1 contrast minimum, alt text on every diagram that describes the *system*, not the picture.
-- Dark and light mode must both be correct. Define light on `:root`, override under
-  `prefers-color-scheme: dark`.
+- **Single fixed dark theme — not adaptive, no toggle** (decided 2026-09-10, superseding an
+  earlier light-first/adaptive rule that was never actually shown to Philip before being built).
+  `color-scheme: dark` in `:root`; no `dark:` variant classes anywhere in the codebase — a plain
+  class *is* the dark-mode value. One accent colour (`--color-accent`, `oklch(0.75 0.1 220)`),
+  verified against every background it sits on: 9.35:1 on slate-950, 8.28:1 on slate-900, 6.78:1
+  on slate-800. If a future change reintroduces `dark:` anywhere, that's a regression, not a
+  variation to fix — grep for it (`grep -rn "dark:" src/`) and remove it.
 - Responsive from 320px. Nothing scrolls horizontally except a deliberately scrollable diagram.
 
 **Dev workflow:** run the dev server in background mode (`astro dev --background`; manage with
@@ -240,7 +245,10 @@ preserved at `ASTRO-DEV-NOTES.md`.)
 
 **Deployment — Vercel:**
 
-- Repo: `philip-portfolio` (public), connected to Vercel for push-to-deploy on `main`.
+- Repo: `philip-portfolio`, connected to Vercel for push-to-deploy on `main`. **Currently
+  private** (Philip's explicit choice, made while case-study content review was still open — see
+  §3a and Phase 5) — flip to public once that's resolved. The deployed *site* is public regardless
+  of repo visibility; Vercel builds from a private repo without issue.
 - Astro's default static output is correct here. Do **not** add an SSR adapter — there is no server
   need, and static keeps it fast and free.
 - Vercel auto-detects Astro; no `vercel.json` unless a redirect is actually required.
@@ -256,10 +264,15 @@ preserved at `ASTRO-DEV-NOTES.md`.)
 **Reference:** <https://rahul-lumbhani-portfolio.vercel.app/> — use for *structure and polish*, not
 as a template to clone.
 
-Borrow: the clean header nav (Home / Work / About), dark-first palette, skip-to-content link,
-featured-project cards that link to dedicated pages, and the contact section with social links.
+Borrowed and built (confirmed against the live site, 2026-09-10 — this was originally a plan
+written before Philip could see the result, and the gap between the two is exactly why it's worth
+recording precisely now): clean header nav (Home / Work / About), a single fixed **dark theme**
+(not adaptive — see §5), skip-to-content link, a headshot in the hero, project cards that link to
+dedicated pages **with a small architecture-diagram preview** (`PipelineThumbnail.astro` —
+simplified, no fine print, since a full diagram's text is illegible at card size), and the contact
+section with social links.
 
-Deliberately reject:
+Deliberately reject, on substance not just taste:
 
 - **Filterable skill icon grids and tech-stack icon walls.** They're decorative and read as a
   junior-portfolio template. Philip's skills go in grouped text lists, as in the resume.
@@ -269,7 +282,8 @@ Deliberately reject:
   constrained environment*. Every word should support that, not undercut it.
 
 The decisive difference from the reference: **its project cards are shallow, and depth is Philip's
-entire differentiator.** Adopt the shell, then go far deeper on each case study.
+entire differentiator.** Adopt the shell and its visual richness, then go far deeper on each case
+study than it does.
 
 Restraint reads as senior. Over-design reads as compensating.
 

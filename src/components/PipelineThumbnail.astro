@@ -1,0 +1,47 @@
+---
+// A small, legible preview for a case-study card — the same visual grammar as the full
+// architecture diagrams (rounded boxes, arrows, currentColor) but with no fine print, since a
+// full diagram's small text labels would be illegible shrunk to card size. See the full diagram
+// on the case study's own page for the real detail; this is a hint of what's there, not a
+// replacement for it.
+interface Props {
+  steps: [string, string, string, string];
+  highlight?: number;
+  label: string;
+}
+const { steps, highlight = 0, label } = Astro.props;
+const boxW = 78;
+const boxH = 56;
+const gap = 28;
+const y = 32;
+const xs = steps.map((_, i) => 8 + i * (boxW + gap));
+---
+
+<svg viewBox="0 0 410 120" role="img" aria-label={label} class="h-24 w-full text-slate-300">
+	<defs>
+		<marker id={`arrow-${label}`} viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+			<path d="M0,0 L10,5 L0,10 z" fill="currentColor" />
+		</marker>
+	</defs>
+	{xs.slice(0, -1).map((x) => (
+		<line x1={x + boxW} y1={y + boxH / 2} x2={x + boxW + gap} y2={y + boxH / 2} stroke="currentColor" stroke-width="1.5" marker-end={`url(#arrow-${label})`} />
+	))}
+	{steps.map((step, i) => (
+		<g>
+			<rect
+				x={xs[i]}
+				y={y}
+				width={boxW}
+				height={boxH}
+				rx="8"
+				fill={i === highlight ? 'var(--color-accent)' : 'none'}
+				fill-opacity={i === highlight ? '0.15' : '1'}
+				stroke={i === highlight ? 'var(--color-accent)' : 'currentColor'}
+				stroke-width="1.5"
+			/>
+			<text x={xs[i] + boxW / 2} y={y + boxH / 2 + 5} text-anchor="middle" font-size="14" font-weight="600" fill="currentColor">
+				{step}
+			</text>
+		</g>
+	))}
+</svg>

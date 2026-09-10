@@ -2,11 +2,20 @@
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
+import PipelineThumbnail from '../components/PipelineThumbnail.astro';
 import headshot from '../assets/philip-headshot.jpg';
 
 const caseStudies = (await getCollection('caseStudies'))
   .filter((entry) => entry.data.featured)
   .sort((a, b) => a.data.order - b.data.order);
+
+// Simplified previews of each case study's full architecture diagram — no fine print, since a
+// full diagram's small text labels would be illegible shrunk to card size (see PipelineThumbnail).
+const thumbnails: Record<string, { steps: [string, string, string, string]; highlight: number; label: string }> = {
+  'voice-ai-survey-platform': { steps: ['ASR', 'MT', 'Route', 'TTS'], highlight: 2, label: 'Speech recognition, translation, routing, speech synthesis' },
+  'akan-english-speech-pipeline': { steps: ['STT', 'MT', 'TTS', 'Triton'], highlight: 3, label: 'Speech-to-text, translation, text-to-speech, served on Triton' },
+  'docu-ai': { steps: ['Parse', 'Plan', 'Emit', 'Verify'], highlight: 3, label: 'Parse, plan, emit, verify pipeline' },
+};
 
 const shortEntries = [
   {
@@ -62,14 +71,14 @@ const skillGroups = [
 			width={224}
 			loading="eager"
 			fetchpriority="high"
-			class="h-28 w-28 shrink-0 rounded-full object-cover object-top ring-1 ring-slate-200 dark:ring-slate-800"
+			class="h-28 w-28 shrink-0 rounded-full object-cover object-top ring-1 ring-slate-800"
 		/>
 		<div>
-			<p class="mb-3 text-sm font-medium uppercase tracking-wide text-accent dark:text-accent-light">
+			<p class="mb-3 text-sm font-medium uppercase tracking-wide text-accent">
 				AI/ML Engineer · Speech, Vision &amp; Applied MLOps
 			</p>
 			<h1 class="mb-6 text-3xl font-semibold tracking-tight sm:text-4xl">Philip Baah Afriyie</h1>
-			<p class="max-w-2xl text-lg leading-relaxed text-slate-700 dark:text-slate-300">
+			<p class="max-w-2xl text-lg leading-relaxed text-slate-300">
 				Three years at Ayadata fine-tuning ASR, MT and TTS on code-switched Twi and Akan speech,
 				building computer vision for crop detection, and shipping the agentic AI — LangChain and
 				LangGraph agents, retrieval-augmented generation — that puts those models to work. Accra,
@@ -85,15 +94,26 @@ const skillGroups = [
 				<li>
 					<a
 						href={`/work/${entry.id}/`}
-						class="block rounded-lg border border-slate-200 p-6 transition hover:border-accent dark:border-slate-800 dark:hover:border-accent-light"
+						class="block overflow-hidden rounded-lg border border-slate-800 transition hover:border-accent"
 					>
-						<h3 class="mb-2 font-semibold">{entry.data.title}</h3>
-						<p class="mb-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-							{entry.data.summary}
-						</p>
-						<p class="flex flex-wrap gap-2 text-xs text-slate-500 dark:text-slate-400">
-							{entry.data.stack.map((tech) => <span>{tech}</span>)}
-						</p>
+						{thumbnails[entry.id] && (
+							<div class="border-b border-slate-800 bg-slate-900/50 px-6 py-4">
+								<PipelineThumbnail
+									steps={thumbnails[entry.id].steps}
+									highlight={thumbnails[entry.id].highlight}
+									label={thumbnails[entry.id].label}
+								/>
+							</div>
+						)}
+						<div class="p-6">
+							<h3 class="mb-2 font-semibold">{entry.data.title}</h3>
+							<p class="mb-4 text-sm leading-relaxed text-slate-400">
+								{entry.data.summary}
+							</p>
+							<p class="flex flex-wrap gap-2 text-xs text-slate-400">
+								{entry.data.stack.map((tech) => <span>{tech}</span>)}
+							</p>
+						</div>
 					</a>
 				</li>
 			))}
@@ -104,12 +124,12 @@ const skillGroups = [
 		<h2 class="mb-8 text-xl font-semibold tracking-tight">Other work</h2>
 		<ul class="flex flex-col gap-6">
 			{shortEntries.map((item) => (
-				<li class="rounded-lg border border-slate-200 p-6 dark:border-slate-800">
+				<li class="rounded-lg border border-slate-800 p-6">
 					<h3 class="mb-2 font-semibold">{item.title}</h3>
-					<p class="mb-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+					<p class="mb-4 text-sm leading-relaxed text-slate-400">
 						{item.summary}
 					</p>
-					<p class="flex flex-wrap gap-2 text-xs text-slate-500 dark:text-slate-400">
+					<p class="flex flex-wrap gap-2 text-xs text-slate-400">
 						{item.stack.map((tech) => <span>{tech}</span>)}
 					</p>
 				</li>
@@ -122,8 +142,8 @@ const skillGroups = [
 		<dl class="flex flex-col gap-5">
 			{skillGroups.map((group) => (
 				<div class="grid grid-cols-1 gap-1 sm:grid-cols-[11rem_1fr] sm:gap-4">
-					<dt class="text-sm font-medium text-slate-900 dark:text-slate-100">{group.label}</dt>
-					<dd class="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+					<dt class="text-sm font-medium text-slate-100">{group.label}</dt>
+					<dd class="text-sm leading-relaxed text-slate-400">
 						{group.items.join(', ')}
 					</dd>
 				</div>

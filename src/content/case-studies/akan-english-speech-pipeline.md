@@ -38,7 +38,7 @@ training started:
 
 ## Architecture
 
-<svg viewBox="0 0 800 260" role="img" aria-label="Speech-to-text: Whisper fine-tuned on normalized, code-switched Akan transcripts. Machine translation: bidirectional NLLB-200 between Akan and English, tracked in MLflow. Text-to-speech: a custom-trained Akan voice. All three packaged for serving behind NVIDIA Triton, fronted by a FastAPI gateway handling auth and rate limiting, with Terraform and Ansible configs Philip authored that the cloud engineer applies to provision the running cluster." class="my-8 w-full text-slate-700 dark:text-slate-300">
+<svg viewBox="0 0 800 260" role="img" aria-label="Speech-to-text: Whisper fine-tuned on normalized, code-switched Akan transcripts. Machine translation: bidirectional NLLB-200 between Akan and English, tracked in MLflow. Text-to-speech: a custom-trained Akan voice. All three packaged for serving behind NVIDIA Triton, fronted by a FastAPI gateway handling auth and rate limiting, with Terraform and Ansible configs Philip authored that the cloud engineer applies to provision the running cluster." class="my-8 w-full text-slate-300">
   <defs>
     <marker id="arrow-akan" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="currentColor" />

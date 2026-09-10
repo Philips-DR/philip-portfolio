@@ -16,18 +16,18 @@ const { Content } = await render(entry);
 
 <Layout title={`${entry.data.title} — Philip Baah Afriyie`} description={entry.data.summary}>
 	<article class="mx-auto max-w-3xl px-6 py-16">
-		<a href="/#work" class="mb-8 inline-block text-sm text-accent hover:underline dark:text-accent-light">
+		<a href="/#work" class="mb-8 inline-block text-sm text-accent hover:underline">
 			&larr; Back to work
 		</a>
 		<h1 class="mb-2 text-3xl font-semibold tracking-tight">{entry.data.title}</h1>
-		<p class="mb-6 text-sm text-slate-500 dark:text-slate-400">
+		<p class="mb-6 text-sm text-slate-400">
 			{entry.data.role}
 			{entry.data.period && <> &middot; {entry.data.period}</>}
 		</p>
-		<p class="mb-8 flex flex-wrap gap-2 text-xs text-slate-500 dark:text-slate-400">
-			{entry.data.stack.map((tech) => <span class="rounded border border-slate-200 px-2 py-1 dark:border-slate-800">{tech}</span>)}
+		<p class="mb-8 flex flex-wrap gap-2 text-xs text-slate-400">
+			{entry.data.stack.map((tech) => <span class="rounded border border-slate-800 px-2 py-1">{tech}</span>)}
 		</p>
-		<div class="prose prose-slate max-w-none dark:prose-invert">
+		<div class="prose prose-invert max-w-none">
 			<Content />
 		</div>
 	</article>

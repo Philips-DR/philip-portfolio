@@ -33,7 +33,7 @@ than a typical converter:
 
 ## Architecture
 
-<svg viewBox="0 0 800 200" role="img" aria-label="Pipeline: parse markdown into an AST, plan Docs API batch update requests from it, emit by calling the API, then verify by reading the built document back and lint-checking for residue" class="my-8 w-full text-slate-700 dark:text-slate-300">
+<svg viewBox="0 0 800 200" role="img" aria-label="Pipeline: parse markdown into an AST, plan Docs API batch update requests from it, emit by calling the API, then verify by reading the built document back and lint-checking for residue" class="my-8 w-full text-slate-300">
   <defs>
     <marker id="arrow-docuai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="currentColor" />
