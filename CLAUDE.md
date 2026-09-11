@@ -96,7 +96,7 @@ Current state (all private as of 2026-09-09):
 
 | Repo | Language | Verdict |
 |---|---|---|
-| `docu-ai` | TypeScript | **Best candidate.** General-purpose tool, not employer IP. Audit and open first. |
+| `docu-ai` | TypeScript | **Public** (flipped 2026-09-11, on Philip's explicit go-ahead). LICENSE pushed, repo link live on its case study. |
 | `voice-ai-survey-platform` | Python | **Ownership unresolved — see note below.** Default to private and present as an architecture case study until resolved. |
 | `personal-ai-main` | Python | **Not personal work — keep private, not portfolio content.** See audit note below. |
 | `second-brain` | — | Likely personal notes. Assume not publishable unless Philip says otherwise. |
@@ -245,10 +245,11 @@ preserved at `ASTRO-DEV-NOTES.md`.)
 
 **Deployment — Vercel:**
 
-- Repo: `philip-portfolio`, connected to Vercel for push-to-deploy on `main`. **Currently
-  private** (Philip's explicit choice, made while case-study content review was still open — see
-  §3a and Phase 5) — flip to public once that's resolved. The deployed *site* is public regardless
-  of repo visibility; Vercel builds from a private repo without issue.
+- Repo: `philip-portfolio`, connected to Vercel for push-to-deploy on `main`. **Public** (flipped
+  2026-09-11, Philip's explicit instruction) — note the 4 `CONFIRM (Philip)` markers in the
+  case-study source were still unresolved at that point (Phase 2), so they're now technically
+  visible to anyone browsing the repo's raw Markdown, not just invisible-on-the-rendered-page as
+  originally planned. Resolve them soon.
 - Astro's default static output is correct here. Do **not** add an SSR adapter — there is no server
   need, and static keeps it fast and free.
 - Vercel auto-detects Astro; no `vercel.json` unless a redirect is actually required.
@@ -360,8 +361,9 @@ dynamic route pipeline is proven end to end. Their bodies are explicit Phase 2 w
 - [x] Rotate any exposed credential, then clean history — n/a, nothing exposed
 - [x] Write a real README — already excellent (pre-existing); MIT LICENSE drafted, staged locally,
       not pushed
-- [ ] **Philip confirms** → push the LICENSE → make `docu-ai` public → then add its real repo link
-      to the case study and homepage (not done yet — would 404 while private)
+- [x] **Philip confirmed** (2026-09-11) → LICENSE pushed → `docu-ai` flipped public → real repo
+      link added to its case study page (`repo` field in the content schema; homepage card left
+      alone since it's a single wrapping `<a>` and a second nested link would be invalid HTML)
 - [x] Run the §3a audit on `personal-ai-main` — reclassified as employer work, not portfolio
       material; stays private regardless of the public-code decision (see audit results above)
 - [x] Architecture diagram — voice pipeline (telephony → ASR → MT → classify → route → TTS) —
@@ -409,12 +411,12 @@ dynamic route pipeline is proven end to end. Their bodies are explicit Phase 2 w
       one in `astro.config.mjs` remains) and read through all case-study copy
 
 ### Phase 5 — Ship
-- [x] Push to GitHub — **as `Philips-DR/philip-portfolio`, kept PRIVATE for now** (Philip's explicit
-      choice) rather than the public repo originally planned here. This is the right call while the
-      4 `CONFIRM (Philip)` markers in the case studies are still unresolved (see Phase 2) — a
-      private repo means unreviewed draft claims aren't publicly visible. **Flip to public only
-      once those are resolved**, alongside (not before) the Vercel deploy — no reason for the
-      code to go public before the site itself does.
+- [x] Push to GitHub — as `Philips-DR/philip-portfolio`. Initially kept private while content
+      review was open, then **flipped public 2026-09-11 on Philip's direct instruction** ("set my
+      github project to public" → clarified to "all the repos"). Flagged at the time: the 4
+      `CONFIRM (Philip)` markers were still unresolved, meaning draft/unverified claims are now
+      visible in the repo's raw source, not just absent from the rendered page. Philip's call to
+      make regardless — noted, not blocked on.
 - [x] Import into Vercel, confirm the production build, verify the live URL — **live at
       <https://philip-portfolio-five.vercel.app/>** (Philip did the GitHub-access + import steps
       himself; `astro.config.mjs` and `robots.txt` updated to match and pushed, which triggered an

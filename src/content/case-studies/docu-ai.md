@@ -10,6 +10,7 @@ stack:
   - Google Docs API
   - OAuth 2.0
   - Vitest
+repo: https://github.com/Philips-DR/docu-ai
 order: 3
 featured: true
 ---

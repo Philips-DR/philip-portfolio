@@ -24,9 +24,16 @@ const { Content } = await render(entry);
 			{entry.data.role}
 			{entry.data.period && <> &middot; {entry.data.period}</>}
 		</p>
-		<p class="mb-8 flex flex-wrap gap-2 text-xs text-slate-400">
+		<p class="mb-6 flex flex-wrap gap-2 text-xs text-slate-400">
 			{entry.data.stack.map((tech) => <span class="rounded border border-slate-800 px-2 py-1">{tech}</span>)}
 		</p>
+		{entry.data.repo && (
+			<p class="mb-8">
+				<a href={entry.data.repo} class="text-sm text-accent hover:underline">
+					View source on GitHub &rarr;
+				</a>
+			</p>
+		)}
 		<div class="prose prose-invert max-w-none">
 			<Content />
 		</div>

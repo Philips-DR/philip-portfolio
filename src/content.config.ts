@@ -14,6 +14,9 @@ const caseStudies = defineCollection({
     // Not every entry has resume-stated dates (e.g. personal projects) — never invent one.
     period: z.string().optional(),
     stack: z.array(z.string()),
+    // Only set once the repo is actually public — a link to a private repo just 404s for a
+    // recruiter. See CLAUDE.md §3a for the audit/go-ahead protocol before flipping visibility.
+    repo: z.url().optional(),
     // Homepage card order, ascending.
     order: z.number(),
     featured: z.boolean().default(true),
