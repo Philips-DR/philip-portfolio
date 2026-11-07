@@ -96,7 +96,8 @@ Current state (all private as of 2026-09-09):
 
 | Repo | Language | Verdict |
 |---|---|---|
-| `docu-ai` | TypeScript | **Public** (flipped 2026-09-11, on Philip's explicit go-ahead). LICENSE pushed, repo link live on its case study. |
+| `docu-ai` | TypeScript | **Public** (flipped 2026-09-11, on Philip's explicit go-ahead). Now one of Shelby's tools; linked from Shelby's case study. |
+| `shelby` | Python, TypeScript | **Public** (as `suite` since 2026-10-24, renamed 2026-11-07). Philip's own project, his design built with Claude Code as a pair programmer (his words, 2026-11-07). Its case study replaced docu-ai's. |
 | `voice-ai-survey-platform` | Python | **Public, Philip's call (2026-11-07).** Recreated that day with a single commit; its earlier history is private as `voice-ai-survey-platform-old`, for Philip to delete. |
 | `personal-ai-main` | Python | **Not portfolio content.** Archived 2026-11-07 (Philip: deprecated). |
 | `second-brain` | — | Likely personal notes. Assume not publishable unless Philip says otherwise. |
@@ -146,7 +147,8 @@ Every deep case study follows this order. It maps to how a hiring manager reads.
 3. **Architecture** — a diagram, plus prose walking the data path end to end.
 4. **Key decisions** — 2–4 real forks in the road, each with the alternative and why it lost.
 5. **Results** — measured, with provenance stated.
-6. **What I'd do differently** — mandatory. This section is what distinguishes a senior engineer
+6. **What I'd do differently** — mandatory, except where the work is still being built: Shelby's ends with **Where it
+   stands** instead (Philip, 2026-11-07: "the system is not yet done, there will be more upgrades"). This section is what distinguishes a senior engineer
    from a tool-lister. Never omit it, never make it a humblebrag.
 
 ### Voice
@@ -165,7 +167,7 @@ Three deep case studies, two short entries. More than that and nothing gets read
 **Deep:**
 - Voice AI Survey Platform *(flagship — lead with this; it's the most distinctive thing here)*
 - Akan–English Speech Pipeline *(fine-tuning → Triton serving; the MLOps depth story)*
-- docu-ai *(the public repo; the verification-first engineering story)*
+- Shelby *(the public repo: an assistant and six tools over MCP; replaced docu-ai's case study 2026-11-07, docu-ai being one of its tools; `/work/docu-ai` redirects to it)*
 
 **Short (3–4 sentences each, on the homepage, no dedicated page):**
 - Agentic document extraction (OCR → PostgreSQL → downstream agents)

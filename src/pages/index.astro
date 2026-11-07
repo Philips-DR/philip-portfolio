@@ -14,7 +14,7 @@ const caseStudies = (await getCollection('caseStudies'))
 const thumbnails: Record<string, { steps: [string, string, string, string]; highlight: number; label: string }> = {
   'voice-ai-survey-platform': { steps: ['ASR', 'MT', 'Route', 'TTS'], highlight: 2, label: 'Speech recognition, translation, routing, speech synthesis' },
   'akan-english-speech-pipeline': { steps: ['STT', 'MT', 'TTS', 'Triton'], highlight: 3, label: 'Speech-to-text, translation, text-to-speech, served on Triton' },
-  'docu-ai': { steps: ['Parse', 'Plan', 'Emit', 'Verify'], highlight: 3, label: 'Parse, plan, emit, verify pipeline' },
+  shelby: { steps: ['Web app', 'Assistant', 'MCP', '6 tools'], highlight: 1, label: 'Web app, assistant, MCP, six tools' },
 };
 
 const shortEntries = [
