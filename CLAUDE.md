@@ -97,22 +97,9 @@ Current state (all private as of 2026-09-09):
 | Repo | Language | Verdict |
 |---|---|---|
 | `docu-ai` | TypeScript | **Public** (flipped 2026-09-11, on Philip's explicit go-ahead). LICENSE pushed, repo link live on its case study. |
-| `voice-ai-survey-platform` | Python | **Ownership unresolved — see note below.** Default to private and present as an architecture case study until resolved. |
-| `personal-ai-main` | Python | **Not personal work — keep private, not portfolio content.** See audit note below. |
+| `voice-ai-survey-platform` | Python | **Public, Philip's call (2026-11-07).** Recreated that day with a single commit; its earlier history is private as `voice-ai-survey-platform-old`, for Philip to delete. |
+| `personal-ai-main` | Python | **Not portfolio content.** Archived 2026-11-07 (Philip: deprecated). |
 | `second-brain` | — | Likely personal notes. Assume not publishable unless Philip says otherwise. |
-
-**Note on `voice-ai-survey-platform`:** Philip states it was an exploratory project that never
-reached production. The resume presents it as shipped and deployed under Ayadata employment. Until
-that's reconciled, treat ownership as unresolved. Three facts decide it — where it was built (work
-time and equipment vs. his own), whether it used employer data (the resume references *real
-code-switched farmer speech*, which would be Ayadata's to hold), and what his contract's IP
-assignment clause covers. Shipping status is **not** one of the deciding factors; employers own
-unshipped internal prototypes too.
-
-If it resolves to Philip's own independent work, treat it exactly like `docu-ai` — audit, README,
-publish. If it resolves to employer work, it stays private and becomes a case study. Never publish
-it in a modified form intended to obscure its origin: a derivative work has the same owner as the
-original, so that adds risk without resolving anything.
 
 Audit steps, per repo, before any visibility change:
 
@@ -139,21 +126,10 @@ disqualifying event. The order matters.
 real document IDs. The one test hitting the live Google API is opt-in (`DOCU_AI_LIVE_TESTS=1`),
 skipped by default, and self-cleaning (trashes its test doc in `afterAll`). The existing README
 already meets the "what/why/install/usage/architecture/testing" bar — no rewrite needed. A LICENSE
-(MIT) is drafted and staged locally in the audit clone, not yet pushed. All 4 commits are authored
-under `philip@ayadata.ai` — not a security issue, just worth knowing before this is public.
+(MIT) is drafted and staged locally in the audit clone, not yet pushed.
 **Remaining step: Philip confirms → push the LICENSE → flip visibility to public.**
 
-**`personal-ai-main` — reclassified, not portfolio material.** No secrets found either (all
-`.env.example` fields blank, no leaked keys/tokens across history). But its own README states it
-was **"built by the AyaData AI Solutions team"** — this is not personal work despite the repo name,
-and stays private regardless of code quality. Separately: test fixtures in
-`backend/tests/test_modules/test_email_handler.py`, `test_github_docs_handler.py`, and
-`backend/tests/evals/fixtures.py` contain email addresses on the real `@ayadata.ai` domain
-(`elton@ayadata.ai`, `henry@ayadata.ai`) alongside clearly synthetic ones (`alice@co.com`). Not
-investigated further — whether those reference real colleagues is Philip's call, not something to
-dig into further here. Also present: a `Personal AI Assistant Project Scope.docx` (18KB, untouched)
-— worth Philip's own look regardless of the portfolio question, since scope docs often contain
-planning detail (goals, timelines) not meant to ever go public.
+**`personal-ai-main` — not portfolio material.** Archived 2026-11-07 (Philip: deprecated).
 
 ---
 
@@ -364,8 +340,7 @@ dynamic route pipeline is proven end to end. Their bodies are explicit Phase 2 w
 - [x] **Philip confirmed** (2026-09-11) → LICENSE pushed → `docu-ai` flipped public → real repo
       link added to its case study page (`repo` field in the content schema; homepage card left
       alone since it's a single wrapping `<a>` and a second nested link would be invalid HTML)
-- [x] Run the §3a audit on `personal-ai-main` — reclassified as employer work, not portfolio
-      material; stays private regardless of the public-code decision (see audit results above)
+- [x] Run the §3a audit on `personal-ai-main` — not portfolio material; archived 2026-11-07
 - [x] Architecture diagram — voice pipeline (telephony → ASR → MT → classify → route → TTS) —
       inline SVG in the Voice AI Survey Platform case study
 - [x] Architecture diagram — serving stack (Triton, FastAPI gateway, Terraform/Ansible) — inline
