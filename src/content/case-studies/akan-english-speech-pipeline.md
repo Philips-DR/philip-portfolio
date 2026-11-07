@@ -131,9 +131,6 @@ positioned to own.
 
 ## What I'd do differently
 
-<!-- CONFIRM (Philip): this is a drafted placeholder, not your actual retrospective — replace
-     with what you'd really say you'd change. -->
-
 Given more time, I'd invest earlier in an active-learning loop for the transcript set — sampling
 the lowest-confidence Whisper outputs for human correction — rather than normalizing a fixed
 transcript pool once and fine-tuning against it, since code-switched speech in the field keeps

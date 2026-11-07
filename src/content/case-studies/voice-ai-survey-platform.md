@@ -126,19 +126,12 @@ that run long instead of letting them time out abruptly.
 
 ## Results
 
-<!-- CONFIRM (Philip): this needs your numbers/specifics — what did internal testing actually
-     cover? Call volume tested, WER-equivalent understanding rate, latency figures, anything
-     concrete you can defend if asked. -->
-
 Validated internally end to end — the full pipeline from incoming audio through routing to
 synthesized response, and worker-restart session resumption — on test calls exercising the
 question graph's conditional branches. It did not reach production and has no real-caller or
 field results to report.
 
 ## What I'd do differently
-
-<!-- CONFIRM (Philip): same as above — this is a plausible placeholder, not your actual
-     retrospective. Replace with what you'd really say. -->
 
 The path to production from here is mostly about scale and failure modes that only show up under
 real load: real-carrier telephony integration and load testing at expected call volumes, and a

@@ -224,10 +224,8 @@ preserved at `ASTRO-DEV-NOTES.md`.)
 **Deployment — Vercel:**
 
 - Repo: `philip-portfolio`, connected to Vercel for push-to-deploy on `main`. **Public** (flipped
-  2026-09-11, Philip's explicit instruction) — note the 4 `CONFIRM (Philip)` markers in the
-  case-study source were still unresolved at that point (Phase 2), so they're now technically
-  visible to anyone browsing the repo's raw Markdown, not just invisible-on-the-rendered-page as
-  originally planned. Resolve them soon.
+  2026-09-11, Philip's explicit instruction). A branch push builds a private Vercel preview;
+  only a change on `main` reaches the live site.
 - Astro's default static output is correct here. Do **not** add an SSR adapter — there is no server
   need, and static keeps it fast and free.
 - Vercel auto-detects Astro; no `vercel.json` unless a redirect is actually required.
@@ -327,11 +325,11 @@ dynamic route pipeline is proven end to end. Their bodies are explicit Phase 2 w
 - [x] Case study 3 — docu-ai (with architecture diagram)
 - [x] Two short entries (document extraction, computer vision) on the homepage
 - [x] Skills section — grouped as in the resume, no proficiency bars or percentage ratings
-- [ ] **Philip reviews every factual claim** before proceeding — in particular every
-      `<!-- CONFIRM (Philip): ... -->` marker left in the three case-study `.md` files (results
-      and "what I'd do differently" sections drafted from stated facts, not your actual
-      retrospective judgment). Search for them with:
-      `grep -rn "CONFIRM (Philip)" src/content/case-studies/`
+- [x] **Philip reviews every factual claim** before proceeding — done 2026-11-07: the three
+      passages still marked `<!-- CONFIRM (Philip): ... -->` (the Akan pipeline's and the voice
+      survey's "What I'd do differently", the survey's "Results") were drafted in September from
+      stated facts; Philip said they are true, and the markers were removed. A marker in a
+      case study's Markdown is published in the page's HTML source: never leave one on a live page.
 
 ### Phase 3 — Evidence
 - [x] Run the §3a audit on `docu-ai` — full history scan for OAuth credentials and `.env` — clean,
@@ -393,7 +391,7 @@ dynamic route pipeline is proven end to end. Their bodies are explicit Phase 2 w
       github project to public" → clarified to "all the repos"). Flagged at the time: the 4
       `CONFIRM (Philip)` markers were still unresolved, meaning draft/unverified claims are now
       visible in the repo's raw source, not just absent from the rendered page. Philip's call to
-      make regardless — noted, not blocked on.
+      make regardless — noted, not blocked on. Resolved 2026-11-07 (Philip confirmed the passages).
 - [x] Import into Vercel, confirm the production build, verify the live URL — **live at
       <https://philip-portfolio-five.vercel.app/>** (Philip did the GitHub-access + import steps
       himself; `astro.config.mjs` and `robots.txt` updated to match and pushed, which triggered an
