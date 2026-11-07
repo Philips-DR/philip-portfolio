@@ -60,7 +60,7 @@ Fixed details (copy exactly, don't retype from memory):
 | | |
 |---|---|
 | Name | Philip Baah Afriyie |
-| Title | AI/ML Engineer · Speech, Vision & Applied MLOps |
+| Title | AI/ML Engineer · Speech, NLP & Applied AI |
 | Location | Accra, Ghana — open to remote |
 | Email | phil.afriyie900@gmail.com |
 | GitHub | github.com/Philips-DR |
